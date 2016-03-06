@@ -14,7 +14,8 @@ Plan B provides three infrastructure components to do :ref:`service-to-service-a
 Provider
 ========
 
-The Plan B Provider issues signed JWT tokens.
+The Plan B Provider issues signed JSON Web Tokens (JWT) as response to Access Token Requests
+with a valid `Resource Owner Password Credentials Grant`_.
 
 An example token creation response (``/oauth2/access_token`` endpoint):
 
@@ -84,3 +85,4 @@ The Plan B Revocation Service manages token revocation lists and provides them t
 .. _OAuth2 Authorization Server: http://tools.ietf.org/html/rfc6749#section-1.1
 .. _OpenID Connect Provider: https://openid.net/specs/openid-connect-core-1_0.html
 .. _JWT tokens: https://tools.ietf.org/html/rfc7519
+.. _Resource Owner Password Credentials Grant: https://tools.ietf.org/html/rfc6749#section-4.3

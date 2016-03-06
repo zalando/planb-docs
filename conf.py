@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# ZMON documentation build configuration file, created by
-# sphinx-quickstart on Fri Jan 24 19:24:14 2014.
+# Plan B Documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #

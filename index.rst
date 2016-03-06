@@ -1,5 +1,5 @@
-Plan B Docs
-===========
+Table of Contents
+=================
 
 .. toctree::
    :maxdepth: 2
@@ -10,11 +10,3 @@ Plan B Docs
    credential-rotation
    revocations
    monitoring
-
-
-Indices and Tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
