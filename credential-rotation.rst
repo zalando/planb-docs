@@ -2,10 +2,10 @@
 Credential Rotation
 ===================
 
-It's good practice to rotate all credentials regularly:
+It's `good practice to rotate all credentials regularly`_:
 
 * OAuth service user passwords should be rotated frequently, e.g. every two hours.
-* OAuth client credentials might be rotated every month.
+* OAuth client credentials (client ID and secret for confidential clients) might be rotated every month.
 
 The Provider allows rotating both user and client credentials via its ``/raw-sync/`` REST API.
 
@@ -15,3 +15,5 @@ To rotate an application's user credentials, do:
 * Distribute the new password (e.g. via a S3 Mint Bucket).
 * Wait at least 10 minutes to give the application time to pick up the new password. Both old and new password will be active during this grace period.
 * Commit the new password by overwriting the user's passwords via a PATCH request to ``/raw-sync/users/{realm}/{id}``.
+
+.. _good practice to rotate all credentials regularly: http://tools.ietf.org/html/rfc6749#section-3.2.1
