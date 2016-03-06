@@ -11,6 +11,9 @@ Plan B provides three infrastructure components to do :ref:`service-to-service-a
 **Revocation Service**
     REST service to manage token revocation lists.
 
+.. image:: images/architecture.svg
+   :alt: Plan B Architecture
+
 Provider
 ========
 
