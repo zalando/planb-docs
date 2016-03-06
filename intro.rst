@@ -85,6 +85,8 @@ Revocation Service
 
 The Plan B Revocation Service manages token revocation lists and provides them to Token Info.
 
+See the :ref:`revocations` section for details.
+
 .. _OAuth2 Authorization Server: http://tools.ietf.org/html/rfc6749#section-1.1
 .. _OpenID Connect Provider: https://openid.net/specs/openid-connect-core-1_0.html
 .. _JWT tokens: https://tools.ietf.org/html/rfc7519
