@@ -5,8 +5,10 @@ Table of Contents
    :maxdepth: 2
 
    intro
+   oauth2
    getting-started
    service-to-service
    credential-rotation
    revocations
    monitoring
+   integrations
