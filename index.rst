@@ -6,6 +6,7 @@ Table of Contents
 
    intro
    oauth2
+   openid-connect
    getting-started
    service-to-service
    credential-rotation
