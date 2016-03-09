@@ -1,7 +1,7 @@
 Table of Contents
 =================
 
-Welcome to the Plan B Documentation!
+Welcome to the Plan B OAuth2/JWT Infrastructure Documentation!
 
 .. toctree::
    :maxdepth: 2
