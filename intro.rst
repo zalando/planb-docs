@@ -2,6 +2,22 @@
 Introduction
 ============
 
+Plan B provides an OAuth 2 infrastructure with these main features:
+
+* Service to Service authentication using the `Resource Owner Password Credentials Grant`_ and `JWT tokens`_
+* User to Service authentication supporting the `Authorization Code Grant`_ flow
+* Token creation without any write operations (no token storage to avoid bottlenecks)
+* Very fast, stateless OAuth access token validation (verifying JWT signature)
+* Highly available Cassandra backend to store OAuth user and client credentials
+* Revocation of JWT access tokens by claims (e.g. "revoke all tokens for user XY")
+* Support for seamless rotation of OAuth user and client credentials
+
+Plan B was developed with the following non-functional requirements in mind:
+
+* Robustness & resilience -- all Plan B components must be highly available and resilient to error conditions
+* Low latency for token validation -- the Token Info component is completely stateless and can be deployed "near" applications to avoid network latency
+* Horizontal scalability -- all components (including Cassandra storage) should be able to scale out
+
 Plan B provides three infrastructure components to do :ref:`service-to-service-auth` with JWT OAuth Bearer tokens:
 
 **Provider**
@@ -91,3 +107,4 @@ See the :ref:`revocations` section for details.
 .. _OpenID Connect Provider: https://openid.net/specs/openid-connect-core-1_0.html
 .. _JWT tokens: https://tools.ietf.org/html/rfc7519
 .. _Resource Owner Password Credentials Grant: https://tools.ietf.org/html/rfc6749#section-4.3
+.. _Authorization Code Grant: https://tools.ietf.org/html/rfc6749#section-4.1

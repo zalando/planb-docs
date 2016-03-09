@@ -21,6 +21,9 @@ The Provider exposes metrics on its management port 7979 with path /metrics.
 ``planb.provider.access_token.{realm}.error.{errortype}``
     DropWizard timer for failed access token requests by realm and error type.
 
+The Provider is mostly CPU-bound by its BCrypt password checking and JWT signing operations.
+Monitoring the CPU usage percentage is therefore strongly recommended.
+
 Token Info
 ==========
 
@@ -40,3 +43,6 @@ The Token Info exposes metrics on its metrics port 9020 with path /metrics.
     Number of upstream cache misses because of expiration.
 ``planb.tokeninfo.proxy.upstream``
     Timer for calls to the upstream tokeninfo. Cached responses are not measured here.
+
+The Token Info is mostly CPU-bound by its JWT signature verification operations.
+Monitoring the CPU usage percentage is therefore strongly recommended.

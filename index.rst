@@ -1,6 +1,8 @@
 Table of Contents
 =================
 
+Welcome to the Plan B Documentation!
+
 .. toctree::
    :maxdepth: 2
 

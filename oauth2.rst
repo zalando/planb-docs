@@ -8,9 +8,15 @@ the Plan B Provider implements an OAuth Authorization Server with the following 
 Authorization Grant
 ===================
 
-The Plan B Provider currently only supports the `Resource Owner Password Credentials Grant Type`_.
+The Plan B Provider currently supports the following grant types:
 
-User and client credentials are exchanged for an JWT access token.
+`Authorization Code Grant Type`_
+    Client redirects to Plan B and user logs in with his credentials.
+    This grant type is used for *User to Service* authentication.
+`Resource Owner Password Credentials Grant Type`_
+    User and client credentials are directly exchanged for an JWT access token.
+    This grant type is mostly used for *Service to Service* authentication
+    where user and client OAuth credentials are known to the service by some form of "secret distribution".
 
 Access Token
 ============
@@ -72,10 +78,28 @@ The Plan B Provider does not support refresh tokens.
 Protocol Endpoints
 ==================
 
+.. _authorization-endpoint:
+
 Authorization Endpoint
 ----------------------
 
-Plan B Provider currently does not implement the OAuth authorization endpoint as only the `Resource Owner Password Credentials Grant Type`_ is supported.
+Plan B Provider provides the `OAuth Authorization Endpoint`_ as ``/oauth2/authorize``:
+
+* The client redirects the user to ``/oauth2/authorize?response_type=code&client_id={clientId}&realm={realm}``
+
+  * ``response_type`` must be "code"
+  * ``client_id`` must be set
+  * ``realm`` must either be set or match hostname
+  * ``redirect_uri`` is the optional callback URL
+  * ``state`` is the optional client "state" (passed through)
+
+* Plan B will display a login form
+* Successful user authentication will trigger a redirect back to the client (``redirect_uri``) including a ``code`` query parameter
+* The client can exchange the given authorization code for a valid JWT token at the :ref:`token-endpoint`.
+
+See `RFC 6749 section 4.1.1. "Authorization Request"`_ for details.
+
+.. _token-endpoint:
 
 Token Endpoint
 --------------
@@ -113,10 +137,13 @@ The Plan B Token Info does not yet implement the `OAuth 2.0 Token Introspection 
 
 
 .. _RFC 6749 "The OAuth 2.0 Authorization Framework": http://tools.ietf.org/html/rfc6749
+.. _Authorization Code Grant Type: http://tools.ietf.org/html/rfc6749#section-1.3.1
 .. _Resource Owner Password Credentials Grant Type: http://tools.ietf.org/html/rfc6749#section-1.3.3
 .. _JWT format: https://tools.ietf.org/html/rfc7519
 .. _Bearer Tokens: http://tools.ietf.org/html/rfc6750
 .. _JSON Web Signature (JWS): https://tools.ietf.org/html/rfc7515
 .. _OAuth Token Endpoint: http://tools.ietf.org/html/rfc6749#section-3.2
+.. _OAuth Authorization Endpoint: http://tools.ietf.org/html/rfc6749#section-3.1
+.. _RFC 6749 section 4.1.1. "Authorization Request": https://tools.ietf.org/html/rfc6749#section-4.1.1
 .. _RFC 6749 section 4.3.2. "Access Token Request": http://tools.ietf.org/html/rfc6749#section-4.3.2
 .. _OAuth 2.0 Token Introspection Endpoint: https://tools.ietf.org/html/rfc7662

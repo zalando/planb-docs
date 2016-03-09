@@ -7,12 +7,12 @@ The Plan B Provider does not yet fully implement all `OpenID Provider`_ endpoint
 Authorization Endpoint
 ======================
 
-Not implemented yet.
+The Plan B Provider :ref:`authorization-endpoint` does not yet support the optional OpenID Connect request parameters.
 
 Token Endpoint
 ==============
 
-The Plan B Provider token endpoint returns an ID token (``id_token``).
+The Plan B Provider :ref:`token-endpoint` returns an ID token (``id_token``).
 
 OpenID Provider Configuration Information Endpoint
 ==================================================
