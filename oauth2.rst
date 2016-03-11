@@ -13,6 +13,10 @@ The Plan B Provider currently supports the following grant types:
 `Authorization Code Grant Type`_
     Client redirects to Plan B and user logs in with his credentials.
     This grant type is used for *User to Service* authentication.
+`Implicit Grant Type`_
+    In the implicit flow, instead of issuing the client
+    an authorization code, the client is issued an access token directly via browser redirect.
+    Plan B allows the implicit flow only for clients which are flagged as "non-confidential".
 `Resource Owner Password Credentials Grant Type`_
     User and client credentials are directly exchanged for an JWT access token.
     This grant type is mostly used for *Service to Service* authentication
@@ -87,15 +91,15 @@ Plan B Provider provides the `OAuth Authorization Endpoint`_ as ``/oauth2/author
 
 * The client redirects the user to ``/oauth2/authorize?response_type=code&client_id={clientId}&realm={realm}``
 
-  * ``response_type`` must be "code"
+  * ``response_type`` must be either "code" (for authorization code flow) or "token" (for implicit flow)
   * ``client_id`` must be set
   * ``realm`` must either be set or match hostname
   * ``redirect_uri`` is the optional callback URL
   * ``state`` is the optional client "state" (passed through)
 
 * Plan B will display a login form
-* Successful user authentication will trigger a redirect back to the client (``redirect_uri``) including a ``code`` query parameter
-* The client can exchange the given authorization code for a valid JWT token at the :ref:`token-endpoint`.
+* Successful user authentication will trigger a redirect back to the client (``redirect_uri``) including a ``code`` query parameter or an ``access_token`` query parameter (for implicit flow).
+* For authorization code flow: the client can exchange the given authorization code for a valid JWT token at the :ref:`token-endpoint`.
 
 See `RFC 6749 section 4.1.1. "Authorization Request"`_ for details.
 
@@ -138,6 +142,7 @@ The Plan B Token Info does not yet implement the `OAuth 2.0 Token Introspection 
 
 .. _RFC 6749 "The OAuth 2.0 Authorization Framework": http://tools.ietf.org/html/rfc6749
 .. _Authorization Code Grant Type: http://tools.ietf.org/html/rfc6749#section-1.3.1
+.. _Implicit Grant Type: http://tools.ietf.org/html/rfc6749#section-1.3.2
 .. _Resource Owner Password Credentials Grant Type: http://tools.ietf.org/html/rfc6749#section-1.3.3
 .. _JWT format: https://tools.ietf.org/html/rfc7519
 .. _Bearer Tokens: http://tools.ietf.org/html/rfc6750
