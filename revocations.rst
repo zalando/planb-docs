@@ -28,3 +28,13 @@ Revoking all tokens issued up to now with subject (username) "jdoe":
          -H 'Content-Type: application/json' \
          -d '{"type": "CLAIM", "data": {"claims": {"sub": "jdoe"}}}' \
          "https://planb-revocation.example.org/revocations"
+
+Forcing Token Info to refresh from certain Timestamp
+====================================================
+
+.. code-block:: bash
+
+    $ tok=... # some valid token accepted by the configured TOKENINFO_URL
+    $ curl -X POST \
+        -H "Authorization: Bearer $tok" \
+        https://planb-revocation.example.org/notifications/REFRESH_FROM?value=123
