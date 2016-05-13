@@ -41,6 +41,8 @@ The issued JWT tokens have the following properties:
   * expiration date (``exp``)
   * issue date (``iat``)
 
+* The JWT payload will additionally contain the OAuth client ID in the ``azp`` claim if the "azp" scope was requested (and granted)
+
 An example JWT access token issued by Plan B Provider might look like (line breaks were added for readability):
 
 .. code-block:: json

@@ -10,6 +10,7 @@ Welcome to the Plan B OAuth2/JWT Infrastructure Documentation!
    oauth2
    openid-connect
    getting-started
+   realms
    service-to-service
    credential-rotation
    revocations
