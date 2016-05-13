@@ -2,6 +2,10 @@
 Introduction
 ============
 
+.. Tip::
+
+    You can also get a good introduction to Plan B by checking out our meetup talk `slides "Plan B Service to Service Authentication with OAuth"`_.
+
 Plan B provides an OAuth 2 infrastructure with these main features:
 
 * Service to Service authentication using the `Resource Owner Password Credentials Grant`_ and `JWT tokens`_
@@ -108,3 +112,4 @@ See the :ref:`revocations` section for details.
 .. _JWT tokens: https://tools.ietf.org/html/rfc7519
 .. _Resource Owner Password Credentials Grant: https://tools.ietf.org/html/rfc6749#section-4.3
 .. _Authorization Code Grant: https://tools.ietf.org/html/rfc6749#section-4.1
+.. _slides "Plan B Service to Service Authentication with OAuth": http://www.slideshare.net/try_except_/plan-b-service-to-service-authentication-with-oauth
