@@ -20,6 +20,7 @@ Clients
 
 * The `STUPS Java tokens library`_ supports token creation using the Plan B Provider Token Endpoint
 * The `STUPS Python tokens library`_ supports token creation using the Plan B Provider Token Endpoint
+* The `Go tokens library`_ also supports token creation using the Plan B Provider Token Endpoint
 
 There are many libraries for the OAuth2 authorization code grant flow (which is supported by Plan B), e.g. the `Flask-OAuth`_ library for Python. 
 
@@ -35,6 +36,7 @@ Resource Servers
 .. _Kio: http://docs.stups.io/en/latest/components/kio.html
 .. _STUPS Java tokens library: https://github.com/zalando-stups/tokens
 .. _STUPS Python tokens library: https://github.com/zalando-stups/python-tokens
+.. _Go tokens library: https://github.com/zalando/go-tokens
 .. _Connexion: https://github.com/zalando/connexion
 .. _Friboo: https://github.com/zalando-stups/friboo
 .. _Spring-OAuth2 STUPS Support: https://github.com/zalando-stups/stups-spring-oauth2-support
